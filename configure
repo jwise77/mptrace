@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [ $# -lt 1 ]; then
+    echo "usage: $0 <machine>"
+    echo "\t e.g. machine = osx, ubuntu, etc."
+    exit 1;
+fi
+
+SYSTEM=$1
+
+if [ ! -f Makefile.$SYSTEM ]; then
+    echo "Makefile.$SYSTEM not found."
+    exit 1;
+fi
+
+ln -s Makefile.$SYSTEM Makefile
